@@ -24,3 +24,5 @@ $statement->execute(params: [
  ":type" => $type,
 ]);
 
+//5. Redirect
+$items = $statement->fetchAll(PDO::FETCH_ASSOC);
