@@ -4,6 +4,7 @@
 $attractie = $_POST['attractie'];
 $capaciteit = $_POST['capaciteit'];
 $melder = $_POST['melder'];
+$type = "";
 
 echo $attractie . " / " . $capaciteit . " / " . $melder;
 
@@ -11,8 +12,8 @@ echo $attractie . " / " . $capaciteit . " / " . $melder;
 require_once '../../../config/conn.php';
 
 //2. Query
-$query = "INSERT INTO meldingen (attractie, type)
-VALUES(:attractie, :type)";
+$query = "INSERT INTO meldingen (attractie, capaciteit, melder, type)
+VALUES(:attractie, :capaciteit, :melder, :type)";
 
 
 //3. Prepare
@@ -21,8 +22,9 @@ $statement = $conn->prepare(query: $query);
 //4. Execute
 $statement->execute(params: [
  ":attractie" => $attractie,
+ ":capaciteit" => $capaciteit,
+ ":melder" => $melder,
  ":type" => $type,
 ]);
 
-//5. Redirect
-$items = $statement->fetchAll(PDO::FETCH_ASSOC);
+
