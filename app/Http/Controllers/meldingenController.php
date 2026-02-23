@@ -16,7 +16,7 @@ VALUES(:attractie, :type)";
 
 
 //3. Prepare
-$statement = $conn->prepare($query);
+$statement = $conn->prepare(query: $query);
 
 //4. Execute
-$items = $statement->fetchAll(PDO::FETCH_ASSOC);
+$items = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
