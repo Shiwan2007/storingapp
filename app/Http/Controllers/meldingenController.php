@@ -19,4 +19,8 @@ VALUES(:attractie, :type)";
 $statement = $conn->prepare(query: $query);
 
 //4. Execute
-$items = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
+$statement->execute(params: [
+ ":attractie" => $attractie,
+ ":type" => $type,
+]);
+
