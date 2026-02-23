@@ -27,5 +27,5 @@ $statement->execute(params: [
  ":type" => $type,
 ]);
 
-header(header: "Location: ../../../resoursces/vieuws/index.php?msg=Melding opgeslagen");
+header(header: "Location: ../../../resources/views/index.php?msg=Melding opgeslagen");
 
