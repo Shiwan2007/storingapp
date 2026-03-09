@@ -9,11 +9,11 @@ $overig = $_POST['overig'];
 $error = array();
 if (isset($_POST['prioriteit'])) 
 {
-    $prioriteit = true;
+    $prioriteit = 1;
 }
 else 
 {
-    $prioriteit = false;
+    $prioriteit = 0;
 }
 
 echo $attractie . " / " . $capaciteit . " / " . $melder;
