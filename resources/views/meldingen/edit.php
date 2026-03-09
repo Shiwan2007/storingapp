@@ -3,7 +3,7 @@
 
 <head>
     <title>StoringApp / Meldingen / Aanpassen</title>
-    <?php require_once '../head.php'; ?>
+    <?php require_once __DIR__ . '/../components/head.php'; ?>
 </head>
 
 <body>
@@ -15,33 +15,38 @@
 
     }
     ?>
-    <?php
-        require_once '../header.php'; ?>
+       <?php require_once __DIR__ . '/../components/header.php'; ?>
 
     <div class="container">
         <h1>Melding aanpassen</h1>
 
         <?php
         //Haal het id uit de URL:
-        $id = //...............;
+        $id =  $_GET['id'];
 
         //1. Haal de verbinding erbij
         //...........
-
+        require_once '../../../config/conn.php';
+            
         //2. Query, vul deze aan met een WHERE zodat je alleen de melding met dit id ophaalt
-        //...........
+        //..........
+        $query = "SELECT * FROM meldingen WHERE id = :id";
 
         //3. Van query naar statement
         $statement = $conn->prepare($query);
 
         //4. Voer de query uit, voeg hier nog de placeholder toe
         $statement->execute([
-            //................
+            ":id" => $id
         ]);
 
         //5. Ophalen gegevens, tip: gebruik hier fetch().
-        $melding = "text";
+        $melding = $statement->fetch(PDO::FETCH_ASSOC);
+        echo "<pre>";
+        print_r($melding);
+        echo "</pre>";
         ?>
+        
 
         <form action="........." method="POST">
             <!-- (voeg hier opdracht 7 toe) -->
