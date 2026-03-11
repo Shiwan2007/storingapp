@@ -48,7 +48,7 @@
         ?>
         
 
-        <form action="........." method="POST">
+        <form action="/app/Http/Controllers/meldingenController.php" method="POST">
             <!-- (voeg hier opdracht 7 toe) -->
 
             <div class="form-group">
